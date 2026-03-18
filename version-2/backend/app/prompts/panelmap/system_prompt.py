@@ -38,13 +38,13 @@ PANELMAP_SCHEMA = """{
 }"""
 
 
-def build_panelmap_prompt(appliance_type: str, ocr_context: str) -> str:
+def build_panelmap_prompt(ocr_context: str) -> str:
     return f"""You are a control panel analysis system for the TouchMap accessibility app.
 
 Your job is to analyze an image of a flat control panel and return a STRICT JSON object
 describing every control, region, and landmark on the panel.
 
-PREDICTED APPLIANCE TYPE: {appliance_type}
+Determine the appliance type from your visual analysis of the panel image.
 
 OCR SIGNALS (use these as hints, but trust your visual analysis more for layout):
 {ocr_context}

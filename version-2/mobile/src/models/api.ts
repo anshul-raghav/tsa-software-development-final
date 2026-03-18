@@ -7,13 +7,6 @@ import { GuidanceTarget, GuidanceFeedback } from "./guidance";
 
 // --- Scan ---
 
-export interface ClassifierResult {
-  appliance_type: string;
-  confidence: number;
-  scan_quality: string;
-  scan_quality_confidence: number;
-}
-
 export interface OCRResult {
   tokens: OCRToken[];
   raw_text: string;
@@ -23,7 +16,6 @@ export interface ScanResponse {
   scan_id: string;
   session_id: string;
   preprocessed_image_ref: string;
-  classifier_result: ClassifierResult;
   ocr_result: OCRResult;
   panel_map: PanelMap;
   control_graph_summary: {
@@ -39,7 +31,6 @@ export interface ScanDetailResponse {
   session_id: string;
   panel_map: PanelMap;
   control_graph: ControlGraph;
-  classifier_result: ClassifierResult;
   ocr_result: OCRResult;
   preprocessed_image_ref: string;
 }

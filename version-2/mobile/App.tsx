@@ -47,7 +47,6 @@ export default function App() {
         );
 
       case "scanning":
-      case "scan_quality_feedback":
       case "processing_scan":
         return (
           <ScanScreen

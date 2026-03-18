@@ -47,9 +47,6 @@ export type SessionEvent =
   | { type: "PERMISSIONS_GRANTED" }
   | { type: "PERMISSIONS_DENIED" }
   | { type: "CAPTURE_COMPLETE"; imageUri: string }
-  | { type: "QUALITY_CHECK"; quality: string }
-  | { type: "QUALITY_OK" }
-  | { type: "RETRY_SCAN" }
   | { type: "SCAN_SUCCESS"; scanId: string; sessionId: string; panelMap: PanelMap; controlGraph: ControlGraph }
   | { type: "SCAN_FAILED"; error: string }
   | { type: "SELECT_TASK" }
@@ -74,7 +71,6 @@ export type SessionState =
   | "idle"
   | "requesting_permissions"
   | "scanning"
-  | "scan_quality_feedback"
   | "processing_scan"
   | "panel_ready"
   | "task_mode"
@@ -117,7 +113,6 @@ export function transition(state: MachineState, event: SessionEvent): MachineSta
 
     case "scanning":
       if (event.type === "CAPTURE_COMPLETE") return { current: "processing_scan", context };
-      if (event.type === "QUALITY_CHECK") return { current: "scan_quality_feedback", context };
       if (event.type === "SCAN_SUCCESS") {
         return {
           current: "panel_ready",
@@ -133,11 +128,6 @@ export function transition(state: MachineState, event: SessionEvent): MachineSta
       }
       if (event.type === "SCAN_FAILED") return { current: "error_recovery", context: { ...context, error: event.error } };
       if (event.type === "ERROR") return { current: "error_recovery", context: { ...context, error: event.error } };
-      break;
-
-    case "scan_quality_feedback":
-      if (event.type === "RETRY_SCAN") return { current: "scanning", context };
-      if (event.type === "QUALITY_OK") return { current: "processing_scan", context };
       break;
 
     case "processing_scan":

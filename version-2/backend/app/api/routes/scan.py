@@ -5,7 +5,6 @@ from fastapi import APIRouter, File, Form, UploadFile
 from app.core.exceptions import SessionNotFoundError, touchmap_exception_to_http
 from app.domain.schemas.scan import ScanResponse, ScanDetailResponse
 from app.services.scan_processing.service import ScanProcessingService
-from app.services.interface_classification.service import InterfaceClassificationService
 from app.services.ocr.service import OCRService
 from app.services.panelmap_extraction.service import PanelMapExtractionService
 from app.services.panelmap_validation.service import PanelMapValidationService
@@ -16,7 +15,6 @@ from app.core.logging import logger
 router = APIRouter(prefix="/scan", tags=["scan"])
 
 scan_processor = ScanProcessingService()
-classifier = InterfaceClassificationService()
 ocr_service = OCRService()
 panelmap_extractor = PanelMapExtractionService()
 panelmap_validator = PanelMapValidationService()
@@ -29,7 +27,7 @@ async def scan_panel(
     image: UploadFile = File(...),
     session_id: str | None = Form(default=None),
 ):
-    """Full scan pipeline: preprocess -> classify -> OCR -> PanelMap -> Graph."""
+    """Full scan pipeline: preprocess -> OCR -> PanelMap -> validate -> Graph."""
     if not session_id:
         session_id = str(uuid.uuid4())
     scan_id = str(uuid.uuid4())
@@ -41,14 +39,11 @@ async def scan_panel(
 
         preprocessed = await scan_processor.process(image_bytes, scan_id)
 
-        classifier_result = await classifier.classify(preprocessed.cleaned_image)
-
         ocr_result = await ocr_service.extract(preprocessed.cleaned_image)
 
         raw_panel_map = await panelmap_extractor.extract(
             cleaned_image=preprocessed.cleaned_image,
             ocr_tokens=ocr_result.tokens,
-            appliance_type=classifier_result.appliance_type,
             scan_id=scan_id,
         )
 
@@ -61,7 +56,6 @@ async def scan_panel(
             session_id=session_id,
             panel_map=panel_map,
             control_graph=control_graph,
-            classifier_result=classifier_result,
             ocr_result=ocr_result,
             preprocessed_image_ref=preprocessed.image_ref,
         )
@@ -72,7 +66,6 @@ async def scan_panel(
             scan_id=scan_id,
             session_id=session_id,
             preprocessed_image_ref=preprocessed.image_ref,
-            classifier_result=classifier_result,
             ocr_result=ocr_result,
             panel_map=panel_map,
             control_graph_summary={

@@ -18,9 +18,6 @@ class Settings(BaseSettings):
     max_image_size_mb: int = 10
     scan_retry_limit: int = 1
 
-    ml_model_path: str = "./app/ml/models/scan_quality_model.pth"
-    ml_confidence_threshold: float = 0.7
-
     ocr_languages: list[str] = ["en"]
     ocr_confidence_threshold: float = 0.3
 

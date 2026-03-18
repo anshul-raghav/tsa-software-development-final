@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from app.core.logging import logger
 from app.domain.models.panel import PanelMap, ControlGraph
 from app.domain.models.task import TaskPlan
-from app.domain.schemas.scan import ClassifierResult, OCRResult, ScanDetailResponse
+from app.domain.schemas.scan import OCRResult, ScanDetailResponse
 
 
 @dataclass
@@ -14,7 +14,6 @@ class ScanRecord:
     session_id: str
     panel_map: PanelMap
     control_graph: ControlGraph
-    classifier_result: ClassifierResult
     ocr_result: OCRResult
     preprocessed_image_ref: str = ""
     task_plans: dict[str, TaskPlan] = field(default_factory=dict)
@@ -35,7 +34,6 @@ class SessionService:
         session_id: str,
         panel_map: PanelMap,
         control_graph: ControlGraph,
-        classifier_result: ClassifierResult,
         ocr_result: OCRResult,
         preprocessed_image_ref: str = "",
     ):
@@ -44,7 +42,6 @@ class SessionService:
             session_id=session_id,
             panel_map=panel_map,
             control_graph=control_graph,
-            classifier_result=classifier_result,
             ocr_result=ocr_result,
             preprocessed_image_ref=preprocessed_image_ref,
         )
@@ -60,7 +57,6 @@ class SessionService:
             session_id=record.session_id,
             panel_map=record.panel_map,
             control_graph=record.control_graph,
-            classifier_result=record.classifier_result,
             ocr_result=record.ocr_result,
             preprocessed_image_ref=record.preprocessed_image_ref,
         )

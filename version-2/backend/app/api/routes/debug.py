@@ -20,5 +20,4 @@ async def debug_panel(scan_id: str):
         "panel_map": scan_data.panel_map.model_dump(),
         "control_graph": scan_data.control_graph.model_dump(),
         "ocr_result": scan_data.ocr_result.model_dump(),
-        "classifier_result": scan_data.classifier_result.model_dump(),
     }

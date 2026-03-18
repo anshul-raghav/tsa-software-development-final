@@ -30,17 +30,13 @@ class PanelMapExtractionService:
         self,
         cleaned_image: np.ndarray,
         ocr_tokens: list[OCRToken],
-        appliance_type: str,
         scan_id: str,
     ) -> PanelMap:
         logger.info(f"Extracting PanelMap via OpenAI: scan_id={scan_id}")
 
         image_b64 = self._encode_image(cleaned_image)
         ocr_context = self._format_ocr_context(ocr_tokens)
-        prompt = build_panelmap_prompt(
-            appliance_type=appliance_type,
-            ocr_context=ocr_context,
-        )
+        prompt = build_panelmap_prompt(ocr_context=ocr_context)
 
         try:
             response = await self._call_openai(image_b64, prompt)
