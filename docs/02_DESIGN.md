@@ -1,6 +1,6 @@
 # TouchMap Design
 
-This document explains how `TouchMap` is designed and why its structure matters. The goal of the design is to create a system that is understandable to users, reliable in real use, and complex enough to solve a difficult accessibility problem in a practical way.
+This document explains how `TouchMap` is designed and why its structure matters. The goal was to build a system that users can understand, rely on, and use in practice.
 
 The idea behind TouchMap is simple: a flat panel is hard to use because it removes the physical clues that many blind users rely on. Our design solves that problem by breaking it into stages. First, the app captures the panel. Next, it uses OCR and AI to figure out what is on the panel and how it is arranged. Finally, it helps the user complete a goal through spoken guidance.
 
@@ -56,7 +56,7 @@ For example, a microwave panel is not just a collection of labels such as `Start
 - some controls are above or below others
 - some tasks require a specific sequence of controls
 
-This design choice is what makes TouchMap more advanced than a basic text-reading tool. The app builds an internal map of the panel so it can guide the user in a more useful way.
+The internal panel map is what lets TouchMap do more than basic text reading. It gives the app a structure it can actually reason about.
 
 ```mermaid
 flowchart TD
@@ -126,7 +126,7 @@ The frontend is not built like a typical visually complex app. Instead, it is de
 
 ### State Machine Design
 
-One of the strongest technical parts of the design is the use of a session state machine. Instead of using loose screen changes, the app moves through clearly defined states. This makes the software easier to understand, test, and debug.
+A key technical choice in the design is the session state machine. Instead of using loose screen changes, the app moves through clearly defined states. That makes the software easier to understand, test, and debug.
 
 ```mermaid
 stateDiagram-v2
@@ -151,7 +151,7 @@ stateDiagram-v2
     explore_mode --> error_recovery
 ```
 
-This design improves software quality because every major transition is intentional. The app always knows what state it is in, what data it should have, and what should happen next.
+This keeps every major transition intentional. The app knows what state it is in, what data it should have, and what should happen next.
 
 ## 6. Backend Design
 
@@ -171,7 +171,7 @@ The backend was designed as a collection of focused modules rather than one larg
 | `services/guidance` | Provides live directional help |
 | `services/sessions` | Keeps track of active scan data |
 
-This modular structure supports strong software coding practices because each part can be developed, tested, and improved without breaking the whole system.
+This modular structure lets each part be developed, tested, and improved without breaking the whole system.
 
 ## 7. Why the Design Is Complex
 
@@ -186,9 +186,9 @@ TouchMap is complex because it is solving more than one problem at once. It is n
 
 That layered design is what gives the project both complexity and usefulness.
 
-## 8. Why the Design Is Creative
+## 8. Originality in the Design
 
-The creativity of TouchMap comes from how it changes the role of accessibility software.
+What makes TouchMap stand out is that it changes the role of accessibility software.
 
 Most tools in this space stop after recognition. They can read words, but they do not turn those words into action. TouchMap is different because it combines OCR, AI interpretation, and structured logic to treat a flat panel as something that can be interpreted, organized, and used through guidance.
 
@@ -199,7 +199,7 @@ The most original design idea in the project is the internal panel map:
 - it supports multiple user modes from one shared understanding
 - it allows the app to guide real tasks instead of simply describing text
 
-This makes the design both more original and more practical.
+That makes the design both more original and more practical.
 
 ## 9. Reliability and Error Handling by Design
 
@@ -212,11 +212,11 @@ Instead of pretending to know the answer when the scan is weak or unclear, the s
 - explain that a control could not be found
 - stop rather than give unsafe instructions
 
-This is an important part of the design because accessibility software must be trustworthy.
+That matters because accessibility software has to be trustworthy.
 
-## 10. Software Coding Practices Reflected in the Design
+## 10. Software Coding Practices in the Design
 
-The design supports strong software engineering in several ways:
+The design reflects a few software coding practices that make the system easier to build, test, and maintain:
 
 - requirements are separated from design, implementation, and testing
 - frontend and backend responsibilities are clearly divided
@@ -225,11 +225,11 @@ The design supports strong software engineering in several ways:
 - the backend uses structured routes and services instead of mixed logic
 - testing can be mapped directly to modules such as task planning, locating, exploring, and panel validation
 
-This matters because a well-designed system is easier to build correctly and easier to explain to judges.
+A well-designed system is easier to build correctly and easier to explain.
 
-## 11. Technical Skill Reflected in the Design
+## 11. System Architecture
 
-The technical skill of the project is visible in how the pieces fit together logically:
+The depth of the design shows up in how the pieces fit together logically:
 
 - the phone handles user interaction and accessibility
 - the backend handles processing and reasoning
@@ -257,4 +257,4 @@ flowchart TD
     I --> H
 ```
 
-In short, the design of TouchMap is built to be accessible, modular, creative, and highly functional. It turns a difficult real-world accessibility problem into a structured software system that is easier to understand, easier to test, and more useful to the end user.
+Overall, the design of TouchMap is accessible, modular, and practical. It turns a difficult accessibility problem into a structured system that is easier to build, test, and explain.

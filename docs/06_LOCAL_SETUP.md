@@ -146,7 +146,7 @@ If you are testing on a **physical phone**, replace `localhost` with your comput
 export const API_BASE_URL = "http://192.168.1.170:8000/api/v1";
 ```
 
-This step is important because a phone cannot reach your computer through `localhost`.
+A phone cannot reach your computer through `localhost`, so you need to use your computer's local IP address instead.
 
 ### Step 4: Start the frontend
 

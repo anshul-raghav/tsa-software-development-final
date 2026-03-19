@@ -2,7 +2,7 @@
 
 This document explains how we built `TouchMap` as a team. While the design document focuses on the system itself, this section focuses on our implementation process: how we divided the work, what tools we used, how we collaborated, and how we turned the original idea into a working project.
 
-Our goal during implementation was not just to make something that worked once. We wanted to build the project in a way that showed strong software coding practices, clear teamwork, logical planning, and a real effort to create a polished and original solution.
+Our goal during implementation was not just to make something that worked once. We wanted a build process that was organized, collaborative, and solid enough to hold up as the project grew.
 
 ## 1. How We Approached the Build
 
@@ -15,7 +15,7 @@ We built TouchMap in stages so that the project stayed organized and manageable.
 5. We built the mobile app and backend in parallel, then connected them through shared workflows.
 6. We refined the product through repeated testing, debugging, and revision.
 
-This step-by-step process helped us avoid building randomly. It also made the project easier to explain, maintain, and improve.
+This step-by-step process kept us from building in a scattered way and made the project easier to explain, maintain, and improve.
 
 ```mermaid
 flowchart LR
@@ -54,7 +54,7 @@ We divided the work by major project responsibilities so each team member could 
 | Stephanie | Documentation quality, requirement organization, and testing support |
 | Anshul | System integration, architecture coordination, live guidance, and final project alignment |
 
-This split improved our implementation in two ways:
+This split helped in two ways:
 
 - it allowed people to work in parallel instead of waiting on one another
 - it gave each major part of the app a clear owner
@@ -86,7 +86,7 @@ During implementation, the frontend work focused on:
 - making sure spoken instructions were central to the experience
 - making it easy to move forward, go back, rescan, or recover from errors
 
-One important implementation choice was to organize the app around a clear state flow instead of random screen switching. That made the project more reliable and made it easier for the team to reason about what the app should do next.
+One implementation choice was to organize the app around a defined state flow instead of ad hoc screen switching. This gave the app a fixed sequence of states and transitions for the main user flow.
 
 ## 5. How We Built the Backend
 
@@ -107,11 +107,11 @@ The backend work included:
 - describing sections of the layout
 - supporting live guidance and session handling
 
-This modular approach reflects strong software coding practices because each part of the backend has a clear job.
+This modular approach kept each part of the backend focused on one job.
 
 ## 6. How We Connected the Pieces
 
-One of the most important parts of implementation was integration. A project like TouchMap only works if the phone app, backend, and guidance logic all connect cleanly.
+One part of implementation was integration across the phone app, backend, and guidance logic.
 
 Our implementation workflow looked like this:
 
@@ -137,7 +137,7 @@ sequenceDiagram
     B-->>M: Return spoken guidance
 ```
 
-This implementation flow helped the team keep the system logical from beginning to end.
+This flow helped the team keep the system consistent from beginning to end.
 
 ## 7. How We Used GitHub in Practice
 
@@ -151,7 +151,7 @@ We used it to:
 - review project structure and file organization
 - avoid conflicts when multiple parts were being built at once
 
-This mattered because TouchMap was not a one-file project. It included multiple screens, backend routes, services, and documentation files. GitHub helped us manage that complexity in a more professional way.
+That mattered because TouchMap was not a one-file project. It included multiple screens, backend routes, services, and documentation files. GitHub helped us manage that complexity without losing track of work.
 
 After the project was finalized, we moved the completed version into a new production GitHub repository. We did this to avoid confusion between draft work, experimental changes, and the polished final version of the project. This helped keep the final submission cleaner, easier to review, and better organized for presentation.
 
@@ -169,7 +169,7 @@ As we implemented the project, we often learned that a feature needed to be adju
 - larger methods might need to be split into smaller helper methods
 - repeated numeric values might need to be replaced with named constants
 
-This iterative process was important because it helped us move from a rough idea to a more polished and functional product.
+That iteration helped us turn rough ideas into features that were clearer and more reliable.
 
 ```mermaid
 flowchart LR
@@ -180,40 +180,9 @@ flowchart LR
     E --> F[Improve Again]
 ```
 
-## 9. How the Implementation Shows Creativity
+## 9. Software Coding Practices in Implementation
 
-The creativity of our implementation comes from how we turned a personal accessibility problem into a layered software solution.
-
-Rather than building a simple label reader, we implemented a system that:
-
-- guides the scan itself
-- uses OCR and AI to understand a real panel
-- understands the panel as a layout
-- supports multiple help modes
-- helps the user complete tasks instead of only identifying buttons
-- adds live guidance when normal directions are not enough
-
-That makes the implementation more original than a typical camera or OCR project.
-
-## 10. How the Implementation Shows Complexity
-
-The project implementation is complex because it combines many different types of work into one finished system:
-
-- mobile app development
-- backend route and service development
-- image-based input handling
-- OCR and AI-assisted interpretation
-- layout interpretation
-- task-based guidance
-- control-finding logic
-- live guidance support
-- documentation and testing structure
-
-The challenge was not just writing code. It was making all of these parts work together in a logical way.
-
-## 11. How the Implementation Shows Strong Software Coding Practices
-
-Our implementation process reflects strong software coding practices in several ways:
+The implementation also reflects a few software coding practices that helped keep the project organized:
 
 - we separated the project into requirements, design, implementation, testing, and setup documentation
 - we divided major system jobs into focused modules
@@ -224,11 +193,11 @@ Our implementation process reflects strong software coding practices in several 
 - we improved maintainability by refactoring complex services into smaller methods
 - we replaced magic numbers with named constants so important thresholds are easier to understand
 
-These choices helped the project stay organized and made the final product easier to explain and maintain.
+These choices contributed to the structure and maintainability of the implementation.
 
-## 12. How the Implementation Shows Technical Skill
+## 10. System Integration
 
-The technical skill of the project is visible in the way the system was assembled:
+The implementation can also be described in terms of how the system was assembled:
 
 - the mobile app and backend were built as separate but coordinated systems
 - the AI layer was integrated into the system as one stage, not as the entire app
@@ -236,18 +205,4 @@ The technical skill of the project is visible in the way the system was assemble
 - the implementation supports both step-by-step guidance and real-time fallback guidance
 - the structure of the project supports future testing and expansion
 
-This demonstrates not just coding ability, but also software construction skill.
-
-## 13. Final Implementation Reflection
-
-Building TouchMap required more than writing features one by one. It required planning, teamwork, version control, clear ownership, repeated revision, and careful integration.
-
-Because of that, the implementation itself became one of the strengths of the project. It shows that our team approached the challenge in a structured, thoughtful, and realistic way:
-
-- we identified a meaningful problem
-- we organized the project before building
-- we split the work effectively
-- we used professional tools like VSCode and GitHub
-- we connected many parts into one working product
-
-In short, TouchMap was implemented as a complete software project, not just a coding demo.
+This section describes how the main parts of the system were connected.

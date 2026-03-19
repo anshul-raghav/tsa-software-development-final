@@ -25,7 +25,7 @@ This document summarizes the most important requirements for `TouchMap`, a voice
 **Process:** The backend uses OCR to read visible text and an AI interpretation layer to organize what it finds into a clear internal map.  
 **Output:** A panel map that shows where controls are and how they relate to each other.  
 **Priority:** High  
-**Why it matters:** This is the core feature that turns raw image data into something the app can reason about.
+**Why it matters:** This feature turns raw image data into a panel map the app can reason about.
 
 ### FR-3: Task Mode
 **Description:** The app guides the user through a goal such as heating food for 60 seconds.  
@@ -33,7 +33,7 @@ This document summarizes the most important requirements for `TouchMap`, a voice
 **Process:** The system decides which controls are needed and gives step-by-step spoken instructions.  
 **Output:** A spoken task plan.  
 **Priority:** High  
-**Why it matters:** This moves the project beyond label reading and into real task completion.
+**Why it matters:** This helps the app do more than read labels. It can guide the user through an actual task.
 
 ### FR-4: Locate Mode
 **Description:** The app helps the user find one specific control.  
@@ -119,7 +119,6 @@ This document summarizes the most important requirements for `TouchMap`, a voice
 - Testing of major workflows
 
 ### Out of Scope
-- Perfect support for every appliance
 - Fully offline intelligence for all features
 - Physical hardware modifications to appliances
 - Automatic button pressing or robotics
