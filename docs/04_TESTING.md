@@ -221,62 +221,7 @@ The file `tests/conftest.py` helps the test suite stay organized by providing sh
 
 It avoids repeating the same setup code in every file and makes the tests easier to read, maintain, and extend.
 
-## 8. How Testing Strengthens TouchMap
-
-### Creativity
-
-The testing process covers more than simple input/output checks. It includes features specific to TouchMap, such as:
-
-- spatial control finding
-- layout exploration
-- AI-assisted panel interpretation
-- panel map building
-- task guidance from real user goals
-
-These are project-specific features rather than generic backend checks.
-
-### Software Coding Practices
-
-The testing structure also reflects good software coding practices:
-
-- tests are organized in a separate `tests/` directory
-- unit and integration tests are clearly separated
-- shared fixtures are reused through `conftest.py`
-- tests map directly to requirements and design modules
-- core logic is testable in isolation
-- AI output is not trusted blindly; it is checked through validation-oriented testing
-
-The test suite is organized around reuse, separation of test types, and validation of core logic.
-
-### Complexity
-
-The testing process also highlights the project’s complexity. TouchMap is not testing one small feature. The test suite covers:
-
-- data models
-- layout reasoning
-- OCR and AI-assisted panel understanding
-- task planning
-- user query interpretation
-- control location logic
-- explore descriptions
-- API behavior
-
-This range of coverage spans multiple interacting parts of the system.
-
-### Workflow Depth
-
-The test suite covers both small logic units and larger workflows. It includes:
-
-- write reusable fixtures
-- validate structured data
-- test API routes
-- simulate workflow behavior
-- check fallback behavior for uncertain cases
-- verify that AI-assisted outputs are validated before they drive user guidance
-
-This provides coverage for both isolated logic and end-to-end behavior.
-
-## 9. Testing Workflow
+## 8. Testing Workflow
 
 Our testing workflow followed a clear pattern:
 
@@ -297,15 +242,7 @@ flowchart LR
 
 This workflow was used to identify issues and retest after changes.
 
-## 10. Limitations and Honest Reflection
-
-The current automated tests are concentrated on the backend, where most of the system’s reasoning happens. This reflects the concentration of logic in panel understanding, task generation, control locating, and reliability checks.
-
-Frontend behavior was also reviewed manually, especially for accessibility flow and clarity, while the automated coverage today is concentrated in `tests/`.
-
-This reflection documents what has been automated, what has been reviewed manually, and where coverage is currently concentrated.
-
-## 11. Final Testing Reflection
+## 9. Final Testing Reflection
 
 The `tests/` folder documents how the project features were verified through structured unit and integration tests.
 

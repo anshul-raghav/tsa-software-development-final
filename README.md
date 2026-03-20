@@ -147,46 +147,46 @@ If any of the screenshots do not render here, you can open the same image files 
 
 ### Home Screen
 
-Home Screen
+![Home Screen](app_images/home_screen.jpg)
 
 ### Point Camera at Control Panel
 
-Point Camera at Control Panel
+![Point Camera at Control Panel](app_images/point_camera_at_control_panel.jpg)
 
 ### Processing Control Panel Image
 
-Processing Control Panel Image
+![Processing Control Panel Image](app_images/processing_control_panel_image.jpg)
 
 ### Finished Processing Options Available
 
-Finished Processing Options Available
+![Finished Processing Options Available](app_images/finished_processing_options_available.jpg)
 
 ### Finished Processing Options Available 2
 
-Finished Processing Options Available 2
+![Finished Processing Options Available 2](app_images/finished_processing_options_available_2.jpg)
 
 ### Task Mode Screen
 
-Task Mode Screen
+![Task Mode Screen](app_images/task_mode_screen.jpg)
 
 ### Task Mode Step 1
 
-Task Mode Step 1
+![Task Mode Step 1](app_images/task_mode_step_1.jpg)
 
 ### Task Mode Live Feedback
 
-Task Mode Live Feedback
+![Task Mode Live Feedback](app_images/task_mode_live_feedback.jpg)
 
 ### Locate Mode Step 1
 
-Locate Mode Step 1
+![Locate Mode Step 1](app_images/locate_mode_step_1.jpg)
 
 ### Locate Mode Live Feedback
 
-Locate Mode Live Feedback
+![Locate Mode Live Feedback](app_images/locate_mode_live_feedback.jpg)
 
 ### Explore Mode
 
-Explore Mode
+![Explore Mode](app_images/explore_mode.jpg)
 
 For more detail, see the numbered documents in `docs/`.
